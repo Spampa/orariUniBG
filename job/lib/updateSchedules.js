@@ -68,26 +68,28 @@ export async function updateSchedules() {
                     if (!s.subject) continue;
                     const oldSchedule = await prisma.schedule.findUnique({
                         where: {
-                            subject_courseId_courseAnnoId_date_start_end: {
+                            subject_courseId_courseAnnoId_date_start_end_classroom: {
                                 courseId: s.courseId,
                                 courseAnnoId: s.courseAnnoId,
                                 subject: s.subject,
                                 date: s.date,
                                 start: s.start,
-                                end: s.end
+                                end: s.end,
+                                classroom: s.classroom
                             }
                         }
                     });
 
                     const newSchedule = await prisma.schedule.upsert({
                         where: {
-                            subject_courseId_courseAnnoId_date_start_end: {
+                            subject_courseId_courseAnnoId_date_start_end_classroom: {
                                 courseId: s.courseId,
                                 courseAnnoId: s.courseAnnoId,
                                 subject: s.subject,
                                 date: s.date,
                                 start: s.start,
-                                end: s.end
+                                end: s.end,
+                                classroom: s.classroom
                             }
                         },
                         update: {

@@ -25,7 +25,9 @@ export async function sendMessage(chatId, text, buttons = []) {
                     chat: chatId
                 },
                 update: {
-                    isBanned: true
+                    isBanned: true,
+                    courseId: null,
+                    annoId: null
                 },
                 create: {
                     chat: chatId,

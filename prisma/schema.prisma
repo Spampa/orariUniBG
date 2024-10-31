@@ -69,5 +69,5 @@ model Schedule {
   isCanceled Boolean
   week       Int
 
-  @@unique([subject, courseId, courseAnnoId, date, start, end])
+  @@unique([subject, courseId, courseAnnoId, date, start, end, classroom])
 }
